@@ -1,13 +1,13 @@
 @extends('wars.layout')
 
 @section('buttons')
-    <a class="btn btn-outline-primary" href="/">Start</a>
+    <a class="btn btn-outline-primary" href="/">Home</a>
 @stop
 
 @section('content')
 <form action="/result">
-    <input id="input-1" type="radio" name="element" onchange="submit();" value="1">
-    <input id="input-2" type="radio" name="element" onchange="submit();" value="2">
+    <input id="input-1" type="radio" name="element" onchange="submit();" value="1" hidden>
+    <input id="input-2" type="radio" name="element" onchange="submit();" value="2" hidden>
     <div class="row">
         <label class="col-md-6" for="input-1">
           <div class="card mb-4 box-shadow">
