@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('wars.home');
+});
+
+Route::get('/vote', function () {
+    return view('wars.vote');
+});
+
+Route::get('/result', function () {
+    return view('wars.result');
 });
