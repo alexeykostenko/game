@@ -16,6 +16,8 @@ class CreateEndpointsTable extends Migration
         Schema::create('endpoints', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 100);
+            $table->string('class', 50);
+            $table->string('endpoint', 20);
             $table->boolean('active')->unsigned()->default(0);
             $table->timestamps();
         });

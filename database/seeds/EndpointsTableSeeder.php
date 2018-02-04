@@ -12,16 +12,29 @@ class EndpointsTableSeeder extends Seeder
      */
     public function run()
     {
-        $endpointNames = [
-            'Starships (Star Wars)',
-            'Pokemon'
+        $endpoints = [
+            [
+                'title' => 'People (Star Wars)',
+                'class' => App\Library\Api\SwApi::class,
+                'endpoint' => 'people',
+                'active' => 1
+            ],
+            [
+                'title' => 'Pokemon',
+                'class' => App\Library\Api\PokeApi::class,
+                'endpoint' => 'pokemon',
+                'active' => 1
+            ],
+            [
+                'title' => 'Planets (Star Wars)',
+                'class' => App\Library\Api\SwApi::class,
+                'endpoint' => 'planets',
+                'active' => 1
+            ],
         ];
 
-        foreach ($endpointNames as $endpointName) {
-            $endpoint = Endpoint::firstOrNew(['title' => $endpointName]);
-            $endpoint->title = $endpointName;
-            $endpoint->active = 1;
-            $endpoint->save();
+        foreach ($endpoints as $endpointData) {
+            Endpoint::firstOrCreate($endpointData);
         }
     }
 }

@@ -16,9 +16,10 @@ class CreateElementsTable extends Migration
         Schema::create('elements', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('endpoint_id')->unsigned();
-            $table->string('title', 100);
+            $table->string('name', 100);
             $table->integer('votes')->unsigned()->default(0);
             $table->string('photo', 500)->nullable();
+            $table->string('url', 500)->nullable();
             $table->timestamps();
         });
     }
