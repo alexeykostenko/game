@@ -5,7 +5,6 @@ namespace App\Library\Api;
 /**
  *
  * @documentation https://swapi.co/documentation
- * @author Alexey Kostenko aleksey.kostenko.dev@gmail.com
  */
 
 use App\Library\Api;
@@ -23,11 +22,13 @@ class SwApi extends Api
 
     public function planets($url)
     {
-        return $this->sendRequest($url)['results'];
+        $response = $this->sendRequest($url);
+        return isset($response['results']) ? $response['results'] : collect([]);
     }
 
     public function people($url)
     {
-        return $this->sendRequest($url)['results'];
+        $response = $this->sendRequest($url);
+        return isset($response['results']) ? $response['results'] : collect([]);
     }
 }

@@ -5,7 +5,6 @@ namespace App\Library\Api;
 /**
  *
  * @documentation https://www.pokeapi.co/docsv2/
- * @author Alexey Kostenko aleksey.kostenko.dev@gmail.com
  */
 
 use App\Library\Api;
@@ -27,7 +26,13 @@ class PokeApi extends Api
 
     public function pokemon($url)
     {
-        $elements = $this->sendRequest($url)['results'];
+        $response = $this->sendRequest($url);
+
+        if (!isset($response['results'])) {
+            return collect([]);
+        }
+
+        $elements = $response['results'];
 
         foreach ($elements as $key => &$element) {
             $pokemon = $this->sendRequest($element['url']);

@@ -11,7 +11,7 @@ class Element extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'photo', 'url'];
+    protected $fillable = ['name', 'photo', 'url', 'endpoint_id'];
 
     /**
      * Get the votes for the element.
@@ -28,5 +28,11 @@ class Element extends Model
     public function scopeOpponents()
     {
         return $this->paginate(2);
+    }
+
+    public function scopeAddElement($query, $element)
+    {
+        $elementExistingFields = collect($element)->only($this->fillable)->toArray();
+        return $query->firstOrCreate($elementExistingFields);
     }
 }

@@ -17,7 +17,7 @@ class CreateElementsTable extends Migration
             $table->increments('id');
             $table->integer('endpoint_id')->unsigned();
             $table->string('name', 100);
-            $table->integer('votes')->unsigned()->default(0);
+            $table->integer('votes')->default(50);
             $table->string('photo', 500)->nullable();
             $table->string('url', 500)->nullable();
             $table->timestamps();
