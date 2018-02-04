@@ -45,6 +45,10 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        'voter' => [
+            'driver' => 'session',
+            'provider' => 'voter',
+        ],
     ],
 
     /*
@@ -70,6 +74,10 @@ return [
             'model' => App\User::class,
         ],
 
+        'voter' => [
+            'driver' => 'eloquent',
+            'model' => App\Voter::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

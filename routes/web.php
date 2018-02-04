@@ -11,14 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('wars.home');
-});
+Route::get('/', [
+    'as' => 'home', 'uses' => 'WarController@home'
+]);
 
-Route::get('/vote', function () {
-    return view('wars.vote');
-});
+Route::get('/play', [
+    'as' => 'play', 'uses' => 'WarController@play'
+]);
 
-Route::get('/result', function () {
-    return view('wars.result');
-});
+Route::get('/endpoint/{endpoint}', [
+    'as' => 'endpoint', 'uses' => 'WarController@endpoint'
+]);
+
+Route::post('/endpoint/{endpoint}', [
+    'as' => 'endpoint', 'uses' => 'WarController@vote'
+]);
